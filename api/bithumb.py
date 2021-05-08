@@ -59,19 +59,17 @@ class BithumbAPI:
 		res = requests.post(url,
 		headers=headers)
 
-		print(res.json())
-
 		return res.json()
 	
-	def getTicker(order_currency, payment_currency):
-		result = api.xcoinApiCall("/public/ticker", {
+	def getTicker(self, order_currency, payment_currency):
+		result = self.xcoinApiCall("/public/ticker", {
 			"order_currency" : order_currency,
 			"payment_currency" : payment_currency
 		});
 		return result['status'], result['data']
 	
-	def getOrderbook(order_currency, payment_currency):
-		result = api.xcoinApiCall("/public/orderbook", {
+	def getOrderbook(self, order_currency, payment_currency):
+		result = self.xcoinApiCall("/public/orderbook", {
 			"order_currency" : order_currency,
 			"payment_currency" : payment_currency
 		});
